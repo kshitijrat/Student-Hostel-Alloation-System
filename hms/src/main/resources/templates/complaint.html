@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel Management System - Complaint Form</title>
+  <link rel="stylesheet" href="" th:href="@{/complaint.css}">
+</head>
+<body>
+  <div class="container">
+    <h2>Complaint Form</h2>
+    <small style="color: red;">All Information are required to fill*</small><br>
+    <small style="color: red;" th:text="${error}"></small>
+    <form action="/complaint" method="post">
+      <label for="id">ID:</label>
+      <input type="number" id="id" name="id" required>
+      
+      <label for="hostelId">Hostel ID:</label>
+      <input type="number" max="12" min="1" id="hostelId" name="hostelId" required>
+      
+      <div class="complaint-type">
+        <label for="complaintType">Complaint Type:</label>
+        <select id="complaintType" name="cType" required>
+          <option value="">Select</option>
+          <option value="Maintenance">Maintenance</option>
+          <option value="Noise">Noise</option>
+          <option value="Cleanliness">Cleanliness</option>
+          <option value="Security">Security</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      
+      <label for="complaint">Complaint:</label>
+      <textarea id="complaint" name="description" rows="4" required></textarea>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

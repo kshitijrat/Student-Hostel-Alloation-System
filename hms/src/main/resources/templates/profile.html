@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="profile.css" href="#">
+    <title>Profile</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <!-- <li><a href="#">Home</a></li> -->
+            <li style="font-size:xx-large float;"><a href="#" style="font-size:25px;font-weight: bold;">hostel
+                    Management System</a></li>
+
+            <li style="float:right;"><a href="#">Log out</a></li>
+        </ul>
+    </nav>
+    <div style="display:flex;" class="div1">
+        <div class="prodiv">
+            <h1 style="text-align: center;">profile</h1>
+            <div class="divuserimg"><img class="userimg" src="images/user (1).png" alt=""></div>
+            <table>
+                <tr style="font-weight: bold;">
+                    <td>Personal Info:</td>
+                </tr>
+                <tr>
+                    <td><span th:text="${student.name}"></span></td>
+                </tr>
+                <tr>
+                    <td><span th:text="${student.email}"></span></td>
+                </tr>
+                <tr>
+                    <td>+91-<span th:text="${student.phone}"></span></td>
+                </tr>
+                <tr>
+                    <td><span th:text="${student.address}"></span></td>
+                </tr>
+            </table>
+            <!-- academic Info -->
+            <table>
+                <tr style="font-weight: bold;">
+                    <td>Academic Info:</td>
+                </tr>
+                <tr>
+                    <td>Scholar Id: <span th:text="${student.id}"></span></td>
+                </tr>
+                <tr>
+                    <td>Branch: <span th:text="${br.branchstr}"></span>MCA</td>
+                </tr>
+            </table>
+
+            <!-- hostelInfo -->
+            <table>
+                <tr style="font-weight: bold;">
+                    <td>Hostel Info:</td>
+                </tr>
+                <tr>
+                    <td>Hostel No: <span th:text="${student.hostel.hostelId}"></span>9</td>
+                </tr>
+                <tr>
+                    <td>Room No: <span th:text="${roomNo}"></span>9016</td>
+                </tr>
+            </table>
+
+        </div>
+        <div>
+            <div class="content">
+                <div class="grid-container">
+                    <div style="background: linear-gradient(to bottom right, rgb(111, 212, 252), #d6d9e0);"
+                        class="grid-item"><a href=""><img src="images/dash.png"
+                                th:src="@{../images/dash.png}" alt="Dashboard"><span>Dashboard</span></a></div>
+                    <div style="background: linear-gradient(to bottom right, rgb(130, 187, 92), #d6d9e0);"
+                        class="grid-item"><a href="" th:href="@{/mycomplaintform}"><img src="images/complaint.png"
+                                th:src="@{../images/complaint.png}" alt="My Complaint"><span>My Complaints</span></a>
+                    </div>
+                    <div style="background: linear-gradient(to bottom right, rgb(182, 88, 162), #d6d9e0);"
+                        class="grid-item"><a href="" th:href="@{/paymessfee}"><img src="images/receipt.png"
+                                th:src="@{../images/paybill.png}" alt="Pay Mess Fee"><span> Mess Fee Status</span></a>
+                    </div>
+                    <div style="background: linear-gradient(to bottom right, rgb(175, 81, 81), #d6d9e0);"
+                        class="grid-item"><a href="" th:href="@{/payhostelfee}"><img src="images/fee.png"
+                                th:src="@{../images/hostelpaystatus.png}" alt="payhostelfee"><span> Hostel Fee
+                                Status</span></a></div>
+                    <div style="background: linear-gradient(to bottom right, rgb(202, 211, 74), #d6d9e0);"
+                        class="grid-item"><a href="#"><img th:src="@{../images/anti ragging.png}"
+                                alt="Anti Ragging Form"><span>Anti Ragging Form</span></a></div>
+                    <div class="grid-item"><a  href=""><img
+                                th:src="@{../images/allocation.png}" alt="Register for Hostel Allotment"><span>Register
+                                for Hostel Allotment</span></a></div>
+                </div>
+                    
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

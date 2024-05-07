@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Check-in</title>
+    <link rel="stylesheet" href="" th:href="@{/visitorin.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Visitor Check-in</h1>
+        <small style="color: red;" th:text="${error}"></small>
+        <form action="/getvisitreceipt" method="get">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="id">StdID:</label>
+                <input type="number" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="relation">Relation:</label>
+                <input type="text" id="relation" name="relation" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhar">Aadhar:</label>
+                <input type="text" id="aadhar" name="aadhar" required>
+            </div>
+            <div class="form-group">
+                <label for="purposeDescription">Purpose Description:</label>
+                <textarea id="purposeDescription" placeholder="Optional" name="purpose" required></textarea>
+            </div>
+            
+            <button type="submit">Get Receipt</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="staffdashboard.css" th:href="@{/staffdashboard.css}">
+    <title>Staff Dashboard</title>
+    <script>
+        // Disable caching of the dashboard page
+        window.onload = function () {
+            window.history.replaceState({}, document.title, window.location.href);
+        };
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a class="active" href="#">Dashboard</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#logout" id="logoutBtn" class="logoutbtn" th:href="@{/login}">Logout</a></li>
+    </ul>
+
+    <div class="content">
+        <ol>
+            <li><a th:href="@{/staffprofile}" href="">Profile</a></li>
+            <li><a href="">Update Hostel Fee</a></li>
+            <li><a href="" >Update Mess Fee</a></li>
+            <li><a href="">Complaints to Administrator</a></li>
+            <li><a href="" th:href="@{/updatestudent}">Update Students</a></li>
+            <li><a href="" th:href="@{/totalcomplaints}">Total Complaints</a></li>
+        </ol>
+    </div>
+
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            var confirmLogout = confirm('Are you sure you want to logout?');
+            if (confirmLogout) {
+                window.close();
+                window.location.href = this.getAttribute('href');
+            } else {
+                // Cancelled logout
+            }
+        });
+    </script>
+</body>
+
+</html>

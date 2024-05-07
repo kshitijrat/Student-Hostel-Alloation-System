@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    
+    <nav>
+        <ul>
+            <li><a class="active" href="#">Dashboard</a></li>
+            <li><a href="#" th:href="@{/about}">About</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li class="logout-btn"><form id="btnLogout" action="/logout" method="get">
+                <input type="submit" value="Logout" onclick="checkConfirm()">
+            </form></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="grid-container">
+            <!-- <form action="/profile" method="post">
+                <input type="number" name="id"  th:value="${id}" id="" hidden>
+                <div style="background: linear-gradient(to bottom right, rgb(111, 212, 252), #d6d9e0);" class="grid-item"><a  href=""><img src="" th:src = "@{../images/profile.png}" alt="Profile"><span>Profile</span></a></div>
+                <button type="submit"></button>
+            </form> -->
+            <form id="profileForm" action="/profile" method="post">
+                <input type="number" name="id" th:value="${id}" hidden>
+                <div id="profileDiv" style="background: linear-gradient(to bottom right, rgb(111, 212, 252), #d6d9e0);" class="grid-item">
+                    <a href="#">
+                        <img src="../images/profile.png" alt="Profile">
+                        <span>Profile</span>
+                    </a>
+                </div>
+            </form>
+            <div style="background: linear-gradient(to bottom right, rgb(130, 187, 92), #d6d9e0);" class="grid-item"><a href="" th:href="@{/payhostelfee}"><img th:src = "@{../images/paybill.png}"alt="Pay Hostel Fee"><span>Pay Hostel Fee</span></a></div>
+            <div style="background: linear-gradient(to bottom right, rgb(182, 88, 162), #d6d9e0);" class="grid-item"><a href="" th:href="@{/paymessfee}"><img th:src = "@{../images/paybill.png}" alt="Pay Mess Fee"><span>Pay Mess Fee</span></a></div>
+            <div style="background: linear-gradient(to bottom right, rgb(175, 81, 81), #d6d9e0);" class="grid-item"><a href="" th:href="@{/complaint}"><img th:src = "@{../images/complaint.png}" alt="Complaints"><span>Complaints</span></a></div>
+            <div style="background: linear-gradient(to bottom right, rgb(202, 211, 74), #d6d9e0);" class="grid-item"><a href=""><img th:src = "@{../images/anti ragging.png}" alt="Anti Ragging Form"><span>Anti Ragging Form</span></a></div>
+            <div class="grid-item"><a th:href="@{/registerhostelallot}" href=""><img th:src = "@{../images/allocation.png}" alt="Register for Hostel Allotment"><span>Register for Hostel Allotment</span></a></div>
+        </div>
+    </div>
+
+    <script>
+        // Get the profile div and the form
+        var profileDiv = document.getElementById('profileDiv');
+        var profileForm = document.getElementById('profileForm');
+    
+        // Add click event listener to the profile div
+        profileDiv.addEventListener('click', function(event) {
+            // Prevent the default action (opening the href)
+            event.preventDefault();
+            
+            // Submit the form
+            profileForm.submit();
+        });
+    </script>
+    
+</body>
+
+</html>

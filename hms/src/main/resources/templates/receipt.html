@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="receipt.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Receipt</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Amount</th>
+                <th><span th:text="${msg}"></span></th>
+                <th>Transaction ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Date</th>
+            </tr>
+            <tr>
+                <td><span th:text="${id}"></span> </td>
+                <td><span th:text="${amount}"></span></td>
+                <td><span th:text="${status}"></span></td>
+                <td>T1XY23ABC</td>
+                <td><span th:text="${email}"></span> </td>
+                <td><span th:text="${name}"></span></td>
+                <td><span th:text="${date}"></span></td>
+            </tr>
+        </table>
+        <button onclick="window.print()">Print</button>
+    </div>
+</body>
+</html>

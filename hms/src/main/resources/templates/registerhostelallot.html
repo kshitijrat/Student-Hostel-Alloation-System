@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Hostel Allotement</title>
+</head>
+<body>
+    <h1>Register Hostel Allotement...</h1>
+    <form action="/generatehostelallot" method="post">
+        Id:<input type="number" name="id" placeholder="Enter Id" id=""><br>
+        Email: <input type="email" name="email" placeholder="Enter Email" id=""><br>
+        Password <input type="password" name="password" placeholder="Enter Password" id=""><br>
+        Hostel No: <input type="number" name="hostelId" max="12" min="1" placeholder="Enter Hostel No(Id)" id=""><br>
+        Branch: <input type="text" name="branch"  placeholder="Enter Branch" id=""><br>
+        <small style="color:  red; font-weight: bold;"><span th:text="${error}"></span></small><br>
+        <input type="submit" value="Allot Hostel And Room">
+    </form>
+</body>
+</html>

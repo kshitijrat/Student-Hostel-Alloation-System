@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Complaints Details</title>
+  <link rel="stylesheet" href="" th:href="@{/allcomplaints.css}">
+</head>
+<body>
+  <div class="container" th:each="list : ${list}">
+    <h2>All Complaints Details</h2>
+    <div class="info" >
+      <div class="info-row">
+        <span class="label">Status:</span>
+        <span class="value" style="color: green;" id="status" th:text="${list.status}"></span>
+      </div>
+      <div class="info-row">
+        <span class="label">ID:</span>
+        <span class="value" id="id" th:text="${list.student.id}"></span>
+      </div>
+      <div class="info-row">
+        <span class="label">Name:</span>
+        <span class="value" id="name" th:text="${list.name}"></span>
+      </div>
+      <div class="info-row">
+        <span class="label">Subject:</span>
+        <span class="value" id="subject" th:text="${list.cType}"></span>
+      </div>
+      <div class="info-row">
+        <span class="label">Date:</span>
+        <span class="value" id="date" th:text="${list.date}"></span>
+      </div>
+      <div class="info-row">
+        <span class="label">Complaint Description:</span>
+        <span class="value" id="complaintDescription" th:text="${list.description}">.</span>
+      </div>
+    </div>
+    <button onclick="printPage()">Print</button>
+  
+ 
+  </div>
+
+
+  <script>
+    function printPage() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

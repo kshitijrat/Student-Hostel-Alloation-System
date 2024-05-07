@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css" th:href="@{/home.css}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="" th:href="@{/login}">Go to Login</a>
+            <a href="" th:href="@{/visitorin}">Go to VisitorIn</a>
+            <a href="" th:href="@{/visitorout}">Visit Out</a>
+            <a href="" th:href="@{/complaint}">Complaint</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Hostel Management System</h1>
+        <h2>Register New User</h2>
+        <p>Please fill out the form below to register:</p>
+        <form action="/saveuserdata" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id="userName" name="userName" placeholder="Name" required></td>
+                    <td>Email:</td>
+                    <td><input type="email" id="userEmail" name="userEmail" required></td>
+                    <td><small style="color: red;" th:text="${error}"></small></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td><input type="date" id="userDob" name="userDob" required></td>
+                    <td>Category:</td>
+                    <td>
+                        <select id="userCategory" name="userCategory" required>
+                            <option value="Student">Student</option>
+                            <option value="Staff">Staff</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Create Password:</td>
+                    <td><input type="password" id="userPassword" name="userPassword" required></td>
+                    <td>Re-enter Password:</td>
+                    <td><input type="password" id="userPassword2" name="userPassword2" required></td>
+                </tr>
+            </table>
+            <div id="message" class="error-message"></div>
+            <center><input type="submit" value="Submit"></center>
+        </form>
+    </div>
+
+    <script>
+        const input1 = document.getElementById('userPassword');
+        const input2 = document.getElementById('userPassword2');
+        const message = document.getElementById('message');
+    
+        input1.addEventListener('input', checkValues);
+        input2.addEventListener('input', checkValues);
+    
+        function checkValues() {
+            if (input1.value === '' && input2.value !== '') {
+                message.textContent = '*Create Password';
+            } else if (input1.value !== input2.value && input2.value !== '') {
+                message.textContent = '*Passwords do not match';
+            } else {
+                message.textContent = '';
+            }
+        }
+    </script>
+    
+</body>
+
+</html>
